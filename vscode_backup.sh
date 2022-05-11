@@ -3,10 +3,12 @@
 echo "VSCode Back-Uperer"
 
 # change to my backup location
-cd $HOME/Documents/repos/Personal/homebrew
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+cd $SCRIPT_DIR
 
 # run the backup
-/usr/local/bin/code --list-extensions > VSfile
+CODE=$( which code )
+$CODE --list-extensions > VSfile
 # remove and make a fresh copy of .vscode
 rm -r .vscode
 cp -R $HOME/Documents/repos/.vscode .
@@ -15,6 +17,3 @@ cp -R $HOME/Documents/repos/.vscode .
 git add .
 git commit -m "Regular automated backup"
 git push
-
-# Backup extensions
-#cat vs_code_extensions_list.txt | xargs -n 1 code --install-extension
