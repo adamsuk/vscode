@@ -1,4 +1,9 @@
 {
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "html"
+  ],
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#2f7c47",
     "activityBar.activeBorder": "#422c74",
